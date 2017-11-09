@@ -9,8 +9,8 @@ nlcm 함수를 통해 n개의 숫자가 입력되었을 때, 최소공배수를 
 예를들어 [2,6,8,14] 가 입력된다면 168을 반환해 주면 됩니다.
 */
 function nlcm(num) {
-	var answer = Math.max.apply(null, num);
-
+  var max = Math.max.apply(null, num);
+	var answer = max;
   while (true) {
     var length = num.length;
     for (var i = 0; i < num.length; i++) {
@@ -21,7 +21,7 @@ function nlcm(num) {
       break;
     }
     else {
-      answer += Math.max.apply(null, num);
+      answer += max;
     }
   }
 	return answer;
@@ -29,4 +29,4 @@ function nlcm(num) {
 
 
 // 아래는 테스트로 출력해 보기 위한 코드입니다.
-console.log(nlcm([7,234,23,73]));
+console.log(nlcm([65,58,34,35,97,36,69,86,45,64]));
