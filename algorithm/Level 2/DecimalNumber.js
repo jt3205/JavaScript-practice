@@ -14,28 +14,17 @@ numberOfPrime 메소드는 정수 n을 매개변수로 입력받습니다.
 */
 
 function numberOfPrime(n) {
-	var result = 0;
-	var bools = Array(n+1);
-	console.log(bools.length);
-	for (var i = 2; i <= bools.length-1; i++) {
-		bools[i] = true;
-	}
-	for (i = 2; i <= bools.length-1; i++) {
-		if(bools[i]){
-			for (var j = i; j >= 2; j--) {
-				if(i % j == 0){
-					bools[i] = false;
-				}
-			}
-		}
-	}
+    var result = n;
+  for(var j = 2; j < n; j++){
+    for(var i = 2; i < j; i++){
+      if(j % i == 0 && j != i){
+        result--;
+        break;
+      }
+    } 
+  }
 
-	for (i = 0; i < bools.length-1; i++) {
-		if (bools) {
-			result++;
-		}
-	}
-	return result;
+    return result-2;        //1 & n
 }
 
 
