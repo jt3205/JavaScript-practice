@@ -1,29 +1,22 @@
+var answer = [];
 function setAlign(n, k) {
-	var answer = [];
   var array = [];
   for(var i = 0; i <= k; i++){
-  	array.push(i+1);
+    answer.push(i+1);
   }
-  console.log(array);
-	var factN = factorial(n);
-  while(answer.length != factN-1){
-  	var temp = shuffleArray(array);
-    console.log(temp);
-    if(answer.indexOf(temp) == -1){
-    	answer.push(temp);
-    }
-  }
-	return answer;
+  return answer;
 }
 
-function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-  	return array;
+function loop(arr, depth) { 
+  if (depth == arr.length) { // 한번 depth 가 k로 도달하면 사이클이 돌았음. 출력함. 
+    answer.push(arr);
+    return; 
+  } 
+  for (var i = depth; i < n; i++) {
+    arr[i] = [arr[depth], arr[depth] = arr[i]][0];
+    perm(arr, depth + 1);
+    arr[i] = [arr[depth], arr[depth] = arr[i]][0];
+  }
 }
 
 var f = [];
@@ -36,4 +29,4 @@ function factorial (n) {
 } 
 
 // 아래는 테스트로 출력해 보기 위한 코드입니다.
-console.log(setAlign(3, 1));
+console.log(setAlign(3, 6));
